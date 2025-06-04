@@ -1,4 +1,5 @@
 import SkipHeader from "./SkipHeader";
+import SkipFooter from "./SkipFooter";
 import SkipImage from "../assets/skip.jpg";
 import { useEffect, useState } from "react";
 
@@ -75,6 +76,7 @@ const SkipSelect = () => {
           ))}
         </article>
       </section>
+      <SkipFooter />
     </main>
   );
 };
