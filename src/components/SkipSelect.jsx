@@ -1,6 +1,12 @@
+import SkipHeader from "./SkipHeader";
+
 // Component for the "Skip Select" Web Page
 const SkipSelect = () => {
-  return <h1>REM Waste Management</h1>;
+  return (
+    <main className="skip-select-container">
+      <SkipHeader/>
+    </main>
+  );
 };
 
 export default SkipSelect;

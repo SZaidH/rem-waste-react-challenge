@@ -1,1 +1,100 @@
+/* Importing fonts from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+/* Importing Tailwind CSS */
 @import "tailwindcss";
+
+@theme {
+  /* Defining the Font Family */
+  --font-open-sans: "Open Sans", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* Defining the Color Scheme */
+  --rem-orange: #ff8a00;
+  --rem-light-gray: #f0eff4;
+  --rem-dark-blue: #00304c;
+}
+
+/* Properties pertaining to the stepper wrapper */
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--rem-light-gray);
+}
+
+.stepper-item::before,
+.stepper-item::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  top: 20px;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--rem-light-gray);
+}
+
+.stepper-item::before {
+  left: -50%;
+}
+
+.stepper-item::after {
+  left: 50%;
+}
+
+.stepper-item:first-child::before {
+  content: none;
+}
+
+.stepper-item:last-child::after {
+  content: none;
+}
+
+.stepper-item .step-counter {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--rem-light-gray);
+  margin-bottom: 5px;
+  color: var(--rem-dark-blue);
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.stepper-item.completed .step-counter {
+  background-color: var(--rem-orange);
+  color: var(--rem-light-gray);
+}
+
+.stepper-item.active .step-counter {
+  background-color: var(--rem-orange);
+  color: var(--rem-light-gray);
+  border: 2px solid var(--rem-light-gray);
+}
+
+.stepper-item.completed::after {
+  background-color: var(--rem-orange);
+}
+
+.stepper-item.completed::before {
+  background-color: var(--rem-orange);
+}
+
+.stepper-item.active::before {
+  background-color: var(--rem-orange);
+}
+
+.stepper-item.active .step-name,
+.stepper-item.completed .step-name {
+  color: var(--rem-light-gray);
+}
