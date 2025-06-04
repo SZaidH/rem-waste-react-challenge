@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 // Component for the "Skip Select" Web Page
 const SkipSelect = () => {
   const [skipData, setSkipData] = useState([]); // State for storing skip data
+  const [selectedSkip, SetSelectedSkip] = useState();
+  const [footerSticky, setFooterSticky] = useState(false);
 
   useEffect(() => {
     // Function to Fetch the Skip Data from the API - 'https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft'
@@ -24,9 +26,15 @@ const SkipSelect = () => {
     fetchSkips();
   }, []);
 
+  // Function handles the skip button click
+  const handleClick = (skip) => {
+    SetSelectedSkip(skip);
+    setFooterSticky(true);
+  };
+
   return (
     // Container for the skip selector area
-    <main className="skip-select-area">
+    <main className="skip-select-area pb-40">
       <SkipHeader />
       <section className="skip-select m-5">
         {/* Heading Area */}
@@ -44,7 +52,11 @@ const SkipSelect = () => {
           {skipData.map((skip) => (
             <div
               key={skip.id}
-              className="skip bg-[var(--rem-dark-blue)] rounded-xl flex flex-col h-full overflow-hidden"
+              className={`skip bg-[var(--rem-dark-blue)] rounded-xl flex flex-col h-full overflow-hidden ring-transparent  ring-offset-2 ring-offset-[var(--rem-dark-blue)] transition-all duration-200 ${
+                selectedSkip && selectedSkip.id === skip.id
+                  ? "border-[var(--rem-orange)] border-4"
+                  : "ring-transparent ring-2 hover:ring-[var(--rem-orange)] hover:ring-4"
+              }`}
             >
               {/* Skip Image */}
               <img
@@ -68,15 +80,25 @@ const SkipSelect = () => {
                   {skip.hire_period_days} day hire period
                 </p>
 
-                <button className="skip-button block w-fit mx-auto bg-[var(--rem-light-gray)] font-open-sans text-[var(--rem-dark-blue)] p-3 rounded-md font-bold">
-                  Select Skip
+                <button
+                  className={`skip-button block w-fit mx-auto font-open-sans p-3 rounded-md font-bold  ${
+                    footerSticky && selectedSkip.id === skip.id
+                      ? "bg-[var(--rem-orange)] text-white"
+                      : "bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] hover:cursor-pointer hover:bg-[var(--rem-orange)]"
+                  }`}
+                  onClick={() => handleClick(skip)}
+                >
+                  {footerSticky && selectedSkip.id === skip.id
+                    ? "Selected Skip"
+                    : "Select Skip"}
                 </button>
               </div>
             </div>
           ))}
         </article>
       </section>
-      <SkipFooter />
+
+      {footerSticky ? <SkipFooter selectedSkip={selectedSkip} /> : null}
     </main>
   );
 };

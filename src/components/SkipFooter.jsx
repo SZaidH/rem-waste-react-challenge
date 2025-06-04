@@ -1,7 +1,7 @@
 // Footer for the Skip Selector Page
-const SkipFooter = () => {
+const SkipFooter = ({ selectedSkip }) => {
   return (
-    <footer className="skip-footer bg-[var(--rem-orange)] text-white p-3">
+    <footer className="skip-footer bg-[var(--rem-orange)] text-white p-3 fixed bottom-0 left-0 right-0 w-full z-50">
       <p className="font-montserrat font-semibold text-sm">
         Imagery and information shown throughout this website may not reflect
         the exact shape or size specification, colours may vary, options and/or
@@ -12,10 +12,14 @@ const SkipFooter = () => {
       <div className="skip-addition font-open-sans text-lg flex justify-between">
         <div className="addition-info">
           <h3 className="font-bold text-[var(--rem-dark-blue)]">
-            Size Selected: <span className="text-white">6 Yard Skip</span>
+            Size Selected:{" "}
+            <span className="text-white">{selectedSkip.size} Yard Skip</span>
           </h3>
           <h3 className="font-bold text-[var(--rem-dark-blue)]">
-            Total: <span className="text-white">£300</span>
+            Total:{" "}
+            <span className="text-white">
+              £{selectedSkip.price_before_vat + selectedSkip.vat}
+            </span>
           </h3>
         </div>
         <div className="skip-buttons">
