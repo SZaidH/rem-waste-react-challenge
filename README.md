@@ -1,15 +1,15 @@
 # REM Waste Management React Challenge
 
-This repository contains my solution to the REM Waste Management React assessment, focusing on a complete redesign of the "Select Skip" page. My approach began with a detailed analysis of the provided instructions and the job listing to ensure alignment with core requirements. The primary goal was to create a visually distinct and accessible web page. 
+This repository contains my solution to the REM Waste Management React assessment, focusing on a complete redesign of the "Select Skip" page. My approach began with a detailed analysis of the provided instructions and the job listing to ensure alignment with core requirements. The primary goal was to create a visually distinct and accessible web page.
 
 ## Technology Stack
 
 The following technologies were chosen to build a modern, efficient, and maintainable application:
 
-* **Frontend:** React.js, HTML5, CSS3, JavaScript
-* **Styling:** Tailwind CSS
-* **Build Tool:** Vite
-* **Design & Prototyping:** Figma
+- **Frontend:** React.js, HTML5, CSS3, JavaScript
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+- **Design & Prototyping:** Figma
 
 ## Design Process
 
