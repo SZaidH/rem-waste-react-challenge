@@ -73,7 +73,7 @@ const SkipSelect = () => {
               <img
                 src={`${SKIP_IMAGE_URL}${skip.size}-yarder-skip.jpg`}
                 alt={`${skip.size} Yard Skip`}
-                className="skip-img object-cover w-[480px] h-[331px]"
+                className="skip-img object-cover lg:w-[480px] lg:h-[331px]"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = SkipImage; //Backup Skip image

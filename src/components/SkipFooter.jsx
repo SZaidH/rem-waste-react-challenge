@@ -1,5 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 // Footer for the Skip Selector Page
 const SkipFooter = ({ selectedSkip }) => {
+  const navigate = useNavigate();
+
+  const handleNavigationClick = () => {
+    navigate("/under-development");
+  };
+
   return (
     <footer className="skip-footer bg-[var(--rem-orange)] text-white p-3 fixed bottom-0 left-0 right-0 w-full z-50 lg:py-5 lg:px-10 lg:flex lg:justify-between">
       <div className="info-text lg:w-4/6">
@@ -26,10 +34,16 @@ const SkipFooter = ({ selectedSkip }) => {
           </h3>
         </div>
         <div className="skip-buttons">
-          <button className="skip-button bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] p-3 rounded-md font-bold hover:cursor-pointer">
+          <button
+            className="skip-button bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] p-3 rounded-md font-bold hover:cursor-pointer"
+            onClick={handleNavigationClick}
+          >
             Back
           </button>
-          <button className="skip-button ml-5 bg-[var(--rem-dark-blue)] text-white p-3 rounded-md font-bold hover:cursor-pointer hover:bg-[#016098]">
+          <button
+            className="skip-button ml-5 bg-[var(--rem-dark-blue)] text-white p-3 rounded-md font-bold hover:cursor-pointer hover:bg-[#016098]"
+            onClick={handleNavigationClick}
+          >
             Continue
           </button>
         </div>
