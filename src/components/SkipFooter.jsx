@@ -10,7 +10,7 @@ const SkipFooter = ({ selectedSkip }) => {
 
   return (
     <footer className="skip-footer bg-[var(--rem-orange)] text-white p-3 fixed bottom-0 left-0 right-0 w-full z-50 lg:py-5 lg:px-10 lg:flex lg:justify-between">
-      <div className="info-text lg:w-4/6">
+      <div className="info-text lg:flex lg:justify-center lg:items-center lg:w-4/6">
         <p className="font-montserrat font-semibold text-sm lg:text-lg">
           Imagery and information shown throughout this website may not reflect
           the exact shape or size specification, colours may vary, options

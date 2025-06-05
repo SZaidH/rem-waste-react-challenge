@@ -97,44 +97,44 @@ const SkipSelect = () => {
                   </p>
 
                   {skip.allowed_on_road ? (
-                    <p className="skip-road flex items-center">
+                    <p className="skip-road text-[#0BDAA3] flex items-center">
                       {" "}
                       <img
                         src={checkIco}
                         alt="Check icon"
-                        className="w-4 h-4 mr-2"
+                        className="w-5 h-5 mr-2"
                       />{" "}
                       Allowed on Road
                     </p>
                   ) : (
-                    <p className="skip-road text-[#FFA3A3] flex items-center">
+                    <p className="skip-road text-[#F9D04C] flex items-center">
                       {" "}
                       <img
                         src={warningIco}
                         alt="Warning icon"
-                        className="w-4 h-4 mr-2"
+                        className="w-5 h-5 mr-2"
                       />{" "}
                       Not allowed on Road
                     </p>
                   )}
 
                   {skip.allows_heavy_waste ? (
-                    <p className="skip-waste flex items-center">
+                    <p className="skip-waste text-[#0BDAA3] flex items-center">
                       {" "}
                       <img
                         src={checkIco}
                         alt="Check icon"
-                        className="w-4 h-4 mr-2"
+                        className="w-5 h-5 mr-2"
                       />{" "}
                       Can be used for Heavy Waste
                     </p>
                   ) : (
-                    <p className="skip-waste text-[#FFA3A3] flex items-center">
+                    <p className="skip-waste text-[#F9D04C] flex items-center">
                       {" "}
                       <img
                         src={warningIco}
                         alt="Warning icon"
-                        className="w-4 h-4 mr-2"
+                        className="w-5 h-5 mr-2"
                       />{" "}
                       Can't be used for Heavy Waste
                     </p>
