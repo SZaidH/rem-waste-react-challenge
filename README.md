@@ -1,5 +1,9 @@
 # REM Waste Management React Challenge
 
+[Live Demo](https://rem-waste-react-challenge.vercel.app/)
+
+![Rem Waste](https://github.com/user-attachments/assets/dfb84780-05e8-4440-94fa-18cae3132439)
+
 This repository contains my solution to the REM Waste Management React assessment, focusing on a complete redesign of the "Select Skip" page. My approach began with a detailed analysis of the provided instructions and the job listing to ensure alignment with core requirements. The primary goal was to create a visually distinct and accessible web page.
 
 ## Technology Stack
@@ -10,6 +14,7 @@ The following technologies were chosen to build a modern, efficient, and maintai
 - **Styling:** Tailwind CSS
 - **Build Tool:** Vite
 - **Design & Prototyping:** Figma
+- **Deployment:** Vercel
 
 ## Design Process
 
@@ -20,6 +25,8 @@ My initial phase involved a deep dive into the existing REM Waste website and a 
 **Completion Date:** June 3, 2025
 
 ### Phase 2: Visual Design & Prototyping
+
+[View Design on Figma](https://www.figma.com/design/JWBZSH3VQKKxtBoLMscvrZ/REM-Waste-Management?node-id=0-1&t=8scqEadf14mmOMxC-1)
 
 On the basis of these insights, I developed the visual design in Figma, creating mockups for both mobile and desktop. This ensured a fully responsive and intuitive user experience, delivering a clean, modern interface that departs from the original page while preserving core functionality.
 
@@ -57,3 +64,16 @@ This phase was where I translated the visual designs into a functional React app
 - **Quality Assurance:** I thoroughly tested the developed page across various devices to confirm its responsiveness and meticulously checked for any general application errors to ensure stability. 
 
 **Completion Date:** June 5, 2025
+
+### Phase 4: Hosting
+
+For the deployment of the application, Vercel was chosen as the hosting platform. Its seamless integration with Git repositories and efficient build process allowed for a quick and straightforward deployment. The webpage is now live and accessible.
+
+**Completion Date:** June 5, 2025
+
+## Future Considerations
+
+Beyond the scope of this assessment, for a production-level application of this complexity and potential growth, I would implement several key architectural enhancements:
+
+- **Advanced State Management:** To handle the growing complexity of the skip ordering process and ensure efficient data flow across various components, my choice would be either Zustand or React's Context API. While `useState` is sufficient for this particular page, a centralized state solution would streamline managing the selected skip, user details, and order progression across multiple steps and pages.
+- **TypeScript Integration:** As the project scales and features are added, relying solely on JavaScript can become challenging for large codebases. TypeScript would be my preferred choice. Its static typing capabilities would allow for catching bugs early in the development cycle, improve code readability, facilitate refactoring, and ultimately save significant development time and effort in the long run.
