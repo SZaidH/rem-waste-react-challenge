@@ -1,6 +1,8 @@
 import SkipHeader from "./SkipHeader";
 import SkipFooter from "./SkipFooter";
 import SkipImage from "../assets/skip.jpg"; // Backup image for the skips
+import warningIco from "../assets/warning.png"; // Credit: flaticon.com
+import checkIco from "../assets/check.png"; // Credit: flaticon.com
 import { useEffect, useState } from "react";
 
 // Component for the "Skip Select" Web Page
@@ -83,12 +85,57 @@ const SkipSelect = () => {
                   </h3>
                 </div>
 
-                <p className="skip-details font-open-sans text-[var(--rem-light-gray)] text-md mb-4 flex-grow overflow-hidden text-ellipsis">
-                  {skip.hire_period_days} day hire period
-                </p>
+                <div className="skip-details font-open-sans text-[var(--rem-light-gray)] text-md flex-grow overflow-hidden text-ellipsis">
+                  <p className="skip-hire mb-3">
+                    {skip.hire_period_days} day hire period
+                  </p>
 
+                  {skip.allowed_on_road ? (
+                    <p className="skip-road flex items-center">
+                      {" "}
+                      <img
+                        src={checkIco}
+                        alt="Check icon"
+                        className="w-4 h-4 mr-2"
+                      />{" "}
+                      Allowed on Road
+                    </p>
+                  ) : (
+                    <p className="skip-road text-[#FFA3A3] flex items-center">
+                      {" "}
+                      <img
+                        src={warningIco}
+                        alt="Warning icon"
+                        className="w-4 h-4 mr-2"
+                      />{" "}
+                      Not allowed on Road
+                    </p>
+                  )}
+
+                  {skip.allows_heavy_waste ? (
+                    <p className="skip-waste flex items-center">
+                      {" "}
+                      <img
+                        src={checkIco}
+                        alt="Check icon"
+                        className="w-4 h-4 mr-2"
+                      />{" "}
+                      Can be used for Heavy Waste
+                    </p>
+                  ) : (
+                    <p className="skip-waste text-[#FFA3A3] flex items-center">
+                      {" "}
+                      <img
+                        src={warningIco}
+                        alt="Warning icon"
+                        className="w-4 h-4 mr-2"
+                      />{" "}
+                      Can't be used for Heavy Waste
+                    </p>
+                  )}
+                </div>
                 <button
-                  className={`skip-button block w-fit mx-auto font-open-sans p-3 rounded-md font-bold  ${
+                  className={`skip-button block w-fit mt-4 mx-auto font-open-sans p-3 rounded-md font-bold  ${
                     footerSticky && selectedSkip.id === skip.id
                       ? "bg-[var(--rem-orange)] text-white"
                       : "bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] hover:cursor-pointer hover:bg-[var(--rem-orange)]"
