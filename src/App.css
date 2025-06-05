@@ -10,9 +10,9 @@
   --font-montserrat: "Montserrat", sans-serif;
 
   /* Defining the Color Scheme */
-  --rem-orange: #ff8a00;
-  --rem-light-gray: #f0eff4;
-  --rem-dark-blue: #00304c;
+  --rem-orange: rgb(255, 138, 0);
+  --rem-light-gray: rgb(240, 239, 244);
+  --rem-dark-blue: rgb(0, 48, 76);
 }
 
 /* Properties pertaining to the stepper wrapper */
@@ -79,7 +79,7 @@
 .stepper-item.active .step-counter {
   background-color: var(--rem-orange);
   color: var(--rem-light-gray);
-  border: 2px solid var(--rem-light-gray);
+  border: 4px solid var(--rem-light-gray);
 }
 
 .stepper-item.completed::after {
@@ -97,4 +97,13 @@
 .stepper-item.active .step-name,
 .stepper-item.completed .step-name {
   color: var(--rem-light-gray);
+}
+
+/* Media queries for desktop devices */
+@media (min-width: 1024px) {
+  .stepper-item {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--rem-light-gray);
+  }
 }

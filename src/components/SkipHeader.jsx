@@ -16,11 +16,11 @@ const SkipHeader = () => {
   const currentStep = 3;
 
   return (
-    <header className="skip-header m-3 lg:my-5 lg:mx-30 lg:flex lg:justify-center lg:items-center">
+    <header className="skip-header m-3 lg:my-5 lg:mx-50 lg:flex lg:justify-center lg:items-center">
       <img
         src={REMLogo}
         alt="REM Logo"
-        className="w-[111px] h-[63px] object-contain lg:mr-15"
+        className="w-[111px] h-[63px] lg:w-[164px] lg:h-[93px] object-contain lg:mr-15"
       />
 
       {/* Progress Bar Section */}

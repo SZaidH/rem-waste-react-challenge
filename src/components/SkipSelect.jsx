@@ -36,7 +36,7 @@ const SkipSelect = () => {
     // Container for the skip selector area
     <main className="skip-select-area pb-40">
       <SkipHeader />
-      <section className="skip-select m-5 lg:mx-30">
+      <section className="skip-select m-5 lg:mx-50">
         {/* Heading Area */}
         <div className="skip-select-heading text-center lg:text-left mb-8">
           <h2 className="font-montserrat font-bold text-2xl lg:text-4xl lg:mb-3">
@@ -48,13 +48,13 @@ const SkipSelect = () => {
         </div>
 
         {/* Skip Container */}
-        <article className="skip-container grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-20 lg:w-full lg:max-w-none lg:mx-0">
+        <article className="skip-container grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-10 lg:w-full lg:max-w-none lg:mx-0">
           {skipData.map((skip) => (
             <div
               key={skip.id}
-              className={`skip bg-[var(--rem-dark-blue)] rounded-xl flex flex-col h-full overflow-hidden ring-offset-2 ring-offset-[var(--rem-dark-blue)] transition-all duration-200 ${
+              className={`skip bg-[var(--rem-dark-blue)] rounded-xl flex flex-col h-full overflow-hidden transition-all duration-200 ${
                 selectedSkip && selectedSkip.id === skip.id
-                  ? "border-[var(--rem-orange)] border-5 ring-offset-0"
+                  ? "border-[var(--rem-orange)] border-5"
                   : "ring-transparent ring-2 hover:ring-[var(--rem-orange)] hover:ring-4"
               }`}
             >
