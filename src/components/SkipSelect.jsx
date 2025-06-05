@@ -10,6 +10,7 @@ const SkipSelect = () => {
   const [skipData, setSkipData] = useState([]); // State for storing skip data
   const [selectedSkip, SetSelectedSkip] = useState(null);
   const [footerSticky, setFooterSticky] = useState(false);
+  const [error, setError] = useState(null);
 
   const SKIP_IMAGE_URL =
     "https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/"; // The API provided didn't have any Image URL, so an alternative URL used on the "wewantwaste" app was implemented instead. This URL serves as the base for all the skip images
@@ -17,15 +18,20 @@ const SkipSelect = () => {
   useEffect(() => {
     // Function to Fetch the Skip Data from the API - 'https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft'
     const fetchSkips = async () => {
+      setError(null);
       try {
         const response = await fetch(
           "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft"
         );
-        if (!response.ok) console.log(`HTTP Error: ${response.status}`);
+        if (!response.ok) {
+          console.log(`HTTP Error: ${response.status}`);
+          setError("Network error. Please try again later.");
+        }
         const data = await response.json();
         setSkipData(data);
       } catch (err) {
         console.error("Failed to fetch data: ", err);
+        setError("Network error. Please try again later.");
       }
     };
     fetchSkips();
@@ -53,10 +59,18 @@ const SkipSelect = () => {
           <h2 className="font-montserrat font-bold text-2xl lg:text-4xl lg:mb-3">
             Select Skip Size
           </h2>
-          <h3 className="font-open-sans font-semibold text-[var(--rem-orange)] text-xl lg:text-2xl">
+          <h3 className="font-open-sans font-semibold text-[#737272] text-xl lg:text-2xl">
             Various skip sizes to suit your needs
           </h3>
         </div>
+
+        {/* Error handling in case the API is down */}
+        {error ? (
+          <div className="text-center p-8 bg-red-100 border border-red-400 text-red-700 rounded-md">
+            <p className="font-bold text-lg mb-2">Error Loading Skips</p>
+            <p>{error}</p>
+          </div>
+        ) : null}
 
         {/* Skip Container */}
         <article className="skip-container grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-10 lg:w-full lg:max-w-none lg:mx-0">
@@ -70,15 +84,20 @@ const SkipSelect = () => {
               }`}
             >
               {/* Skip Image */}
-              <img
-                src={`${SKIP_IMAGE_URL}${skip.size}-yarder-skip.jpg`}
-                alt={`${skip.size} Yard Skip`}
-                className="skip-img object-cover lg:w-[480px] lg:h-[331px]"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = SkipImage; //Backup Skip image
-                }}
-              />
+              <div
+                className="skip-img-container relative w-full"
+                style={{ paddingTop: "68.9583%" }}
+              >
+                <img
+                  src={`${SKIP_IMAGE_URL}${skip.size}-yarder-skip.jpg`}
+                  alt={`${skip.size} Yard Skip`}
+                  className="skip-img absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = SkipImage; //Backup Skip image
+                  }}
+                />
+              </div>
 
               {/* Skip Info box */}
               <div className="info-box p-4 flex flex-col flex-grow">
@@ -141,7 +160,7 @@ const SkipSelect = () => {
                   )}
                 </div>
                 <button
-                  className={`skip-button block w-fit mt-4 mx-auto font-open-sans p-3 rounded-md font-bold  ${
+                  className={`skip-button block w-fit mt-4 mx-auto font-open-sans p-3 rounded-md font-bold focus:outline-none focus:ring-4 focus:ring-[var(--rem-orange)] ${
                     footerSticky && selectedSkip.id === skip.id
                       ? "bg-[var(--rem-orange)] text-white hover:cursor-pointer"
                       : "bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] hover:cursor-pointer hover:bg-[var(--rem-orange)]"
