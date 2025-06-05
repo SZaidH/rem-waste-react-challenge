@@ -26,10 +26,10 @@ const SkipFooter = ({ selectedSkip }) => {
           </h3>
         </div>
         <div className="skip-buttons">
-          <button className="skip-button bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] p-3 rounded-md font-bold">
+          <button className="skip-button bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] p-3 rounded-md font-bold hover:cursor-pointer">
             Back
           </button>
-          <button className="skip-button ml-5 bg-[var(--rem-dark-blue)] text-white p-3 rounded-md font-bold">
+          <button className="skip-button ml-5 bg-[var(--rem-dark-blue)] text-white p-3 rounded-md font-bold hover:cursor-pointer hover:bg-[#016098]">
             Continue
           </button>
         </div>

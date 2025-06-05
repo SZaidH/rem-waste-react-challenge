@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 // Component for the "Skip Select" Web Page
 const SkipSelect = () => {
   const [skipData, setSkipData] = useState([]); // State for storing skip data
-  const [selectedSkip, SetSelectedSkip] = useState();
+  const [selectedSkip, SetSelectedSkip] = useState(null);
   const [footerSticky, setFooterSticky] = useState(false);
 
   const SKIP_IMAGE_URL =
@@ -33,8 +33,14 @@ const SkipSelect = () => {
 
   // Function handles the skip button click
   const handleClick = (skip) => {
-    SetSelectedSkip(skip);
-    setFooterSticky(true);
+    // If the clicked skip is already selected, unselect it
+    if (selectedSkip && selectedSkip.id === skip.id) {
+      SetSelectedSkip(null);
+      setFooterSticky(false);
+    } else {
+      SetSelectedSkip(skip);
+      setFooterSticky(true);
+    }
   };
 
   return (
@@ -137,7 +143,7 @@ const SkipSelect = () => {
                 <button
                   className={`skip-button block w-fit mt-4 mx-auto font-open-sans p-3 rounded-md font-bold  ${
                     footerSticky && selectedSkip.id === skip.id
-                      ? "bg-[var(--rem-orange)] text-white"
+                      ? "bg-[var(--rem-orange)] text-white hover:cursor-pointer"
                       : "bg-[var(--rem-light-gray)] text-[var(--rem-dark-blue)] hover:cursor-pointer hover:bg-[var(--rem-orange)]"
                   }`}
                   onClick={() => handleClick(skip)}
