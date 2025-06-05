@@ -1,6 +1,6 @@
 import SkipHeader from "./SkipHeader";
 import SkipFooter from "./SkipFooter";
-import SkipImage from "../assets/skip.jpg";
+import SkipImage from "../assets/skip.jpg"; // Backup image for the skips
 import { useEffect, useState } from "react";
 
 // Component for the "Skip Select" Web Page
@@ -8,6 +8,9 @@ const SkipSelect = () => {
   const [skipData, setSkipData] = useState([]); // State for storing skip data
   const [selectedSkip, SetSelectedSkip] = useState();
   const [footerSticky, setFooterSticky] = useState(false);
+
+  const SKIP_IMAGE_URL =
+    "https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/"; // The API provided didn't have any Image URL, so an alternative URL used on the "wewantwaste" app was implemented instead. This URL serves as the base for all the skip images
 
   useEffect(() => {
     // Function to Fetch the Skip Data from the API - 'https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft'
@@ -60,9 +63,13 @@ const SkipSelect = () => {
             >
               {/* Skip Image */}
               <img
-                src={SkipImage}
+                src={`${SKIP_IMAGE_URL}${skip.size}-yarder-skip.jpg`}
                 alt={`${skip.size} Yard Skip`}
-                className="skip-img object-cover"
+                className="skip-img object-cover w-[480px] h-[331px]"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = SkipImage; //Backup Skip image
+                }}
               />
 
               {/* Skip Info box */}
