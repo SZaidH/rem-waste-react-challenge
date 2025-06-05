@@ -16,15 +16,15 @@ const SkipHeader = () => {
   const currentStep = 3;
 
   return (
-    <header className="skip-header m-3">
+    <header className="skip-header m-3 lg:my-5 lg:mx-30 lg:flex lg:justify-center lg:items-center">
       <img
         src={REMLogo}
         alt="REM Logo"
-        className="w-[111px] h-[63px] object-contain"
+        className="w-[111px] h-[63px] object-contain lg:mr-15"
       />
 
       {/* Progress Bar Section */}
-      <section className="stepper-wrapper my-5 bg-[var(--rem-dark-blue)] rounded-xl p-3 font-montserrat flex justify-between">
+      <section className="stepper-wrapper my-5 bg-[var(--rem-dark-blue)] rounded-xl p-3 font-montserrat flex justify-between lg:flex-grow">
         {steps.map((step) => {
           // Determining the state classes for each stepper item
           const isCompleted = step.number < currentStep;

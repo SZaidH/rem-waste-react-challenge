@@ -36,25 +36,25 @@ const SkipSelect = () => {
     // Container for the skip selector area
     <main className="skip-select-area pb-40">
       <SkipHeader />
-      <section className="skip-select m-5">
+      <section className="skip-select m-5 lg:mx-30">
         {/* Heading Area */}
-        <div className="skip-select-heading text-center mb-8">
-          <h2 className="font-montserrat font-bold text-2xl">
+        <div className="skip-select-heading text-center lg:text-left mb-8">
+          <h2 className="font-montserrat font-bold text-2xl lg:text-4xl lg:mb-3">
             Select Skip Size
           </h2>
-          <h3 className="font-open-sans font-semibold text-[var(--rem-orange)] text-xl">
+          <h3 className="font-open-sans font-semibold text-[var(--rem-orange)] text-xl lg:text-2xl">
             Various skip sizes to suit your needs
           </h3>
         </div>
 
         {/* Skip Container */}
-        <article className="skip-container grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <article className="skip-container grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-20 lg:w-full lg:max-w-none lg:mx-0">
           {skipData.map((skip) => (
             <div
               key={skip.id}
-              className={`skip bg-[var(--rem-dark-blue)] rounded-xl flex flex-col h-full overflow-hidden ring-transparent  ring-offset-2 ring-offset-[var(--rem-dark-blue)] transition-all duration-200 ${
+              className={`skip bg-[var(--rem-dark-blue)] rounded-xl flex flex-col h-full overflow-hidden ring-offset-2 ring-offset-[var(--rem-dark-blue)] transition-all duration-200 ${
                 selectedSkip && selectedSkip.id === skip.id
-                  ? "border-[var(--rem-orange)] border-4"
+                  ? "border-[var(--rem-orange)] border-5 ring-offset-0"
                   : "ring-transparent ring-2 hover:ring-[var(--rem-orange)] hover:ring-4"
               }`}
             >
@@ -62,7 +62,7 @@ const SkipSelect = () => {
               <img
                 src={SkipImage}
                 alt={`${skip.size} Yard Skip`}
-                className="skip-img object-cover rounded-t-xl"
+                className="skip-img object-cover"
               />
 
               {/* Skip Info box */}
